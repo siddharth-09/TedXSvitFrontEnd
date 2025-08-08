@@ -6,7 +6,7 @@ export default function Navbar(){
          <div className="NavBar" style={{ padding: "1rem" }}>
       <GlassSurface
         width="100%"
-        height="100%"
+        height="85%"
         borderRadius={24}
         className="glassNavbarContainer"
       >

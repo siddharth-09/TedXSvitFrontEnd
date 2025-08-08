@@ -19,7 +19,7 @@
   color: #ffffff;
   display: flex;
   flex-direction: column;
-  height: 60vh;
+  min-height: 60vh;
 }
 
 .faq-container h2{
@@ -73,10 +73,11 @@
 .faq-icon {
   display: inline-block;
   position: absolute;
+
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: currentColor;
   transition: transform 0.2s ease, color 0.2s ease;
 }
