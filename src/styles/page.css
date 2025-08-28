@@ -227,15 +227,7 @@ body {
   align-items: center; 
   font-size: 1.4rem;
 }
-@media (max-width:720px) {
-   .addressText {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; 
-  font-size: 1rem;
-   }
-}
+
 .addressText p {
   margin: .5rem;
 }
@@ -322,4 +314,13 @@ body {
 
 .get-tickets .tickets-button:hover {
   background-color: #c10710;
+}
+@media (max-width:720px) {
+   .addressText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  font-size: 1rem;
+   }
 }
