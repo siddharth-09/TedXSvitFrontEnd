@@ -10,19 +10,25 @@ import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
+  
     <>
+      <div className="mainpage">
       {/* ------------------------Navbar-------------------------- */}
       <Navbar />
       
       {/* ------------------------Hero Section-------------------------- */}
       <div className="heroSection">
-        <Image
-          src="/mainMandala.svg"
+        <div className="heroMandalaImgContainer"> 
+          {/* <img src="mainMandala.svg" alt="#" className="heroMandala" /> */}
+          <Image
+          src="/heroMandala.svg"
           width={500}
           height={500}
           alt="Picture of the author"
           className="heroMandala"
         />
+        </div>
+        
         <div className="logoTextButtonContainer">
           <div className="logoText">
             <Image
@@ -62,6 +68,7 @@ export default function Home() {
         <FAQs />
       </div>
       <Footer />
+    </div>
     </>
   );
 }

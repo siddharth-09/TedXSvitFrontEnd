@@ -50,9 +50,9 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   borderRadius = 20,
   borderWidth = 0.07,
   brightness = 50,
-  opacity = 0.90,
+  opacity = .9,
   blur = 11,
-  displace = 2,
+  displace = 1,
   backgroundOpacity = 0.2,
   saturation = 1,
   distortionScale = -180,
@@ -202,8 +202,8 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     "--glass-frost": backgroundOpacity,
     "--glass-saturation": saturation,
     "--filter-id": `url(#${filterId})`,
-    "box-shadow": "15px 15px 25px #000000c7",
-    'border-radius': '40px'
+    "boxShadow": "15px 15px 25px #000000c7",
+    'borderRadius': '40px'
   } as React.CSSProperties;
 
   return (

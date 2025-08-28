@@ -110,5 +110,14 @@
     position: absolute;
     top: 0;
     right: 0;
+    animation: mandalaForm 200s linear infinite forwards;
     transform: translateY(0%) translateX(40%) scale(2);
+}
+@keyframes mandalaForm{
+  0%{
+    transform: translateY(0%) translateX(40%) scale(2) rotate(0deg);
+  }
+  100%{
+    transform: translateY(0%) translateX(40%) scale(2) rotate(360deg);
+  }
 }
