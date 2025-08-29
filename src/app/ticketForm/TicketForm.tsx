@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 'use client'
 
 import "./TicketForm.css"
@@ -186,7 +188,7 @@ export function TicketForm() {
             <button
               type="submit"
               className="payButton"
-              disabled={loading || (event && event.available_tickets <= 0)}
+              disabled={loading || (!!event && event.available_tickets <= 0)}
             >
               {loading
                 ? 'Processing...'

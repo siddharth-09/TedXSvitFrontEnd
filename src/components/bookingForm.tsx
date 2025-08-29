@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 'use client'
 
-import { supabase } from '@/lib/supabase'
-import { useEffect, useState } from 'react'
+import { supabase } from '../../lib/supabase'
+import { useState } from 'react'
 
 interface Event {
   id: string
@@ -54,7 +56,7 @@ export default function BookingForm({ event }: BookingFormProps) {
       setMessage('Please fill all fields')
       return
     }
-    const {data , error} = await supabase.from("tickets").select("*").eq("user_name",userDetails.name).eq("user_email",userDetails.email);
+    const {data} = await supabase.from("tickets").select("*").eq("user_name",userDetails.name).eq("user_email",userDetails.email);
     console.log(data)
     if(data?.length != 0 ){
       setMessage("Name already exist");

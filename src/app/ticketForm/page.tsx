@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar"
 import { TicketForm } from "./TicketForm"
+import Image from "next/image"
 export default function Home(){
     return(
         <>
@@ -8,7 +9,7 @@ export default function Home(){
                 <Navbar />
             <div>
                 <TicketForm />
-                <img src="/formMandala.svg" alt="" className="formMandala"/>
+                <Image src="/formMandala.svg" alt="" className="formMandala"/>
             </div>
             </div>
             

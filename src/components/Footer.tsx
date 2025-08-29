@@ -1,7 +1,8 @@
 "use client";
 //import { FaYoutube, FaLinkedin, FaXTwitter, FaInstagram } from "react-icons/fa6";
 import '../styles/Footer.css';
-import TedXFooter from '../../public/TedXFooter.png'
+// import TedXFooter from '../../public/TedXFooter.png'
+import Image from 'next/image';
 const Footer = () => {
   return (
     <footer className="footer-grid">
@@ -30,7 +31,7 @@ const Footer = () => {
           <a href="#">FaInstagram </a>
         </div>
         <div className="footerImage">
-            <img src="/TedXFooter.png" alt="TEDx Footer" />
+            <Image src="/TedXFooter.png" alt="TEDx Footer" width={600} height={100} style={{ height: 'auto', width: '100%' }} />
         </div>
       </div>
     </footer>

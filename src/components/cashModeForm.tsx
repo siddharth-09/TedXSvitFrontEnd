@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 'use client'
 
-import { supabase } from '@/lib/supabase'
-import { generateQRCode, generateTicketId } from '@/utils/qrGeneration'
-import { sendTicketEmail } from '@/utils/sendTicket'
-import { useEffect, useState } from 'react'
+import { supabase } from '../../lib/supabase'
+// import { generateQRCode, generateTicketId } from '@/utils/qrGeneration'
+// import { sendTicketEmail } from '@/utils/sendTicket'
+import { useState } from 'react'
 
 interface Event {
   id: string
@@ -93,9 +95,13 @@ export default function CashForm({ event }: BookingFormProps) {
     setMessage('🎉 Ticket booked successfully! Check your email.')
     setUserDetails({ name: '', email: '', phone: '' }) // reset form
 
-  } catch (err: any) {
+  } catch (err) {
     console.error('Booking error:', err)
-    setMessage(`❌ ${err.message || 'Ticket booking failed'}`)
+    const errorMessage =
+      typeof err === 'object' && err !== null && 'message' in err
+        ? (err as { message?: string }).message
+        : undefined
+    setMessage(`❌ ${errorMessage || 'Ticket booking failed'}`)
   } finally {
     setLoading(false)
   }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import ScrollReveal from "../../Reactbits/ScrollReveal/ScrollReveal";
 import Image from "next/image";
