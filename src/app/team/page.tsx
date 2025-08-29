@@ -3,7 +3,6 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
 import './team.css'; // Make sure to place the CSS file in the same directory or adjust the path
-// import ScrollReveal from "../../Reactbits/ScrollReveal/ScrollReveal";
 import Image from "next/image";
 import FAQs from "@/components/FAQs";
 import Footer from "@/components/Footer";
