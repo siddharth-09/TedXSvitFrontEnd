@@ -1,13 +1,32 @@
 /* Base styles for mobile-first approach */
+
+body{
+width: 100vw;
+    
+   overflow: hidden; 
+     background-color: #000000; /* a deep gray */
+  color: #e5e5e5; /* off-white */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+}
+.AboutContainer{
+    overflow: hidden;
+
+}
 .about-container {
+    width: 100%;
   text-align: justify;
     background-color: black;
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    min-height: 100vh;
-    overflow: hidden; /* Prevent horizontal scroll */
+    overflow: hidden; 
+    /* Prevent horizontal scroll */
 }
 
 .TEDxAbout-container {
@@ -18,6 +37,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .TEDxAbout-container h1 {

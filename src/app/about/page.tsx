@@ -13,10 +13,11 @@ export default function About(){
     return(
         <>
             {/* Add Mobile Navigation at the top level */}
-            <MobileNavPopup />
-            
+           
+            <div className="AboutContainer">
+
             <div className="about-container">
-                <Navbar />
+             
                 <div className="TEDxAbout-container">
                     <h1>About TEDx</h1>
                     <p>TEDx is a program of local, self-organized events licensed by TED, designed to bring people together to share a TED-like experience and bring its spirit of &quot;Ideas Worth Spreading&quot; to local communities.
@@ -30,6 +31,7 @@ TEDx events blend live speakers, performers, and thought-provoking videos that s
                 <Footer />
             </div>
            <img src="/aboutMandala.svg" alt="" className="aboutMandala"/>
+            </div>
         </>
     )
 }

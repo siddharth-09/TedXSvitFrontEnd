@@ -74,9 +74,9 @@ export default function MobileNavPopup() {
         /* Mobile Hamburger Button */
         .mobile-hamburger {
           display: none;
-          position: fixed;
+          position: absolute;
           top: 2rem;
-          right: 2rem;
+          left: 20rem;
           z-index: 9999;
           flex-direction: column;
           justify-content: space-between;
