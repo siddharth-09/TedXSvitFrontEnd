@@ -10,7 +10,7 @@ body {
 
 .NavBar {
   margin-left: 20%;
-  position: fixed;
+  position: absolute;
   z-index: 100;
   padding-top: 2%;
   width: 60%;

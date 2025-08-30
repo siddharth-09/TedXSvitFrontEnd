@@ -66,7 +66,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="NavBar" style={{ padding: "1rem", position: "relative" }}>
+      <div className="NavBar" style={{ padding: "1rem"}}>
         <MobileNavPopup />
         <GlassSurface
           width="100%"

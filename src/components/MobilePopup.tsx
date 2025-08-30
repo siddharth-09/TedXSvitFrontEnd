@@ -1,9 +1,14 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function MobileNavPopup() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -13,9 +18,92 @@ export default function MobileNavPopup() {
     setIsMenuOpen(false);
   };
 
+  // Don't render until mounted to avoid hydration mismatch
+  if (!isMounted) {
+    return (
+      <>
+        <button 
+          className="mobile-hamburger"
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div className="mobile-nav-popup">
+          <div className="mobile-nav-header">
+            <div className="mobile-logo">
+              <img src="/logoNav.png" alt="" />
+            </div>
+            <button 
+              className="mobile-close-btn"
+              aria-label="Close menu"
+            >
+              ✕
+            </button>
+          </div>
+          
+          <div className="mobile-nav-content">
+            <div className="mobile-nav-links">
+              <Link href="/">
+                <span className="nav-item">Home</span>
+              </Link>
+              <Link href="/team">
+                <span className="nav-item">Team</span>
+              </Link>
+              <Link href="/sponsors">
+                <span className="nav-item">Sponsors</span>
+              </Link>
+              <Link href="/about">
+                <span className="nav-item">About</span>
+              </Link>
+            </div>
+            
+            <div className="mobile-tickets-section">
+              <Link href="/ticketForm">
+                <button className="mobile-tickets-button">Get Tickets</button>
+              </Link>
+            </div>
+          </div>
+        </div>
+        <style jsx>{`
+          .mobile-hamburger {
+            display: none;
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            transform: translateY(-50%);
+            z-index: 1000;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            cursor: pointer;
+            padding: 8px;
+            transition: all 0.3s ease;
+          }
+          
+          .mobile-nav-popup {
+            display: none;
+          }
+          
+          @media (max-width: 768px) {
+            .mobile-hamburger {
+              display: flex;
+            }
+          }
+        `}</style>
+      </>
+    );
+  }
+
   return (
     <>
-      {/* Hamburger Menu Button - Fixed position, always visible on mobile */}
+      {/* Hamburger Menu Button */}
       <button 
         className={`mobile-hamburger ${isMenuOpen ? 'mobile-hamburger-active' : ''}`}
         onClick={toggleMenu}
@@ -75,9 +163,10 @@ export default function MobileNavPopup() {
         .mobile-hamburger {
           display: none;
           position: absolute;
-          top: 2rem;
-          left: 20rem;
-          z-index: 9999;
+          top: 2.5rem;
+          right: 2.5rem;
+          transform: translateY(-50%);
+          z-index: 1000;
           flex-direction: column;
           justify-content: space-between;
           width: 28px;
