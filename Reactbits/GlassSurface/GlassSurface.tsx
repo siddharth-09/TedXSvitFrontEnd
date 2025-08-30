@@ -203,7 +203,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     "--glass-saturation": saturation,
     "--filter-id": `url(#${filterId})`,
     "boxShadow": "15px 15px 25px #000000c7",
-    'borderRadius': '40px'
+    'border-radius': '40px'
   } as React.CSSProperties;
 
   return (
