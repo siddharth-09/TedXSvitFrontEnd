@@ -9,7 +9,7 @@ export default function Home(){
                 <Navbar />
             <div>
                 <TicketForm />
-                <Image src="/formMandala.svg" alt="" className="formMandala"/>
+                <Image src="/formMandala.svg" alt="" className="formMandala" width={1920} height={1080}/>
             </div>
             </div>
             

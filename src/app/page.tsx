@@ -1,5 +1,6 @@
 
 import ScrollReveal from "../../Reactbits/ScrollReveal/ScrollReveal";
+import ScrollFloat from "../../Reactbits/ScrollFloat/ScrollFloat";
 import Image from "next/image";
 import "../styles/page.css";
 import FAQs from "@/components/FAQs";
@@ -8,13 +9,14 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 
 
+
 export default function Home() {
   return (
   
     <>
       <div className="mainpage">
       {/* ------------------------Navbar-------------------------- */}
-      <Navbar />
+      {/* <Navbar /> */}
       
       {/* ------------------------Hero Section-------------------------- */}
       <div className="heroSection">
@@ -62,6 +64,8 @@ export default function Home() {
           undisturbed, and impartial in success and failure, pleasure and pain,
           gain and loss.
         </ScrollReveal>
+
+      
       </div>
       {/* ------------------------Frequently Asked Questions-------------------------- */}
       <div className="FAQContainer">

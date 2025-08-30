@@ -8,6 +8,7 @@ import FAQs from "@/components/FAQs";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import MobileNavPopup from '@/components/MobilePopup';
 
 // Define the type for an image object (Website Team)
 interface ImageType {
@@ -70,7 +71,9 @@ const WebsiteTeamCarousel: React.FC<WebsiteTeamCarouselProps> = ({ images }) => 
   const duplicatedImages = [...images, ...images];
 
   return (
+    <>
     <div className="app-container">
+      
       <div className='WebsiteTeam'>
         <div className='WebsiteTeamTitle'>
           <h1 className="title">Website Team</h1>
@@ -80,7 +83,7 @@ const WebsiteTeamCarousel: React.FC<WebsiteTeamCarouselProps> = ({ images }) => 
             className="carousel-container"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
-          >
+            >
             <div className="carousel-track" ref={containerRef}>
               {duplicatedImages.map((image, index) => (
                 <div key={index} className="carousel-slide">
@@ -96,6 +99,8 @@ const WebsiteTeamCarousel: React.FC<WebsiteTeamCarouselProps> = ({ images }) => 
         </div>
       </div>
     </div>
+       
+    </>
   );
 };
 
@@ -290,7 +295,9 @@ export default function HomePage() {
   ];
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
+      <div className="teamContainer">
+
       <div className='HeroSectionContainer'>
         <Image
           src="/TeamMandala.png"
@@ -298,13 +305,14 @@ export default function HomePage() {
           height={1080}
           alt="Picture of the author"
           className="TeamMandala"
-        />
+          />
         <h1>Meet the team behind this event</h1>
       </div>
       <WebsiteTeamCarousel images={websiteTeamImages} />
       <OtherTeams groups={otherTeamsData} />
       <FAQs />
       <Footer />
+          </div>
     </>
   );
 }
