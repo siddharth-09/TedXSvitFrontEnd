@@ -1,12 +1,10 @@
 
 import ScrollReveal from "../../Reactbits/ScrollReveal/ScrollReveal";
-import ScrollFloat from "../../Reactbits/ScrollFloat/ScrollFloat";
 import Image from "next/image";
 import "../styles/page.css";
 import FAQs from "@/components/FAQs";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
 
 
 
