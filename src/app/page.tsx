@@ -44,7 +44,7 @@ export default function Home() {
           </div>
           <div className="getTicketBtn">
             <Link href="/ticketForm">
-              <button>Get Tickets</button>
+              <button  style={{ color: "white"}}>Get Tickets</button>
             </Link>
             
           </div>
