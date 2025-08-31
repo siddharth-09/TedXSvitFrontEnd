@@ -6,15 +6,22 @@ import FAQs from "@/components/FAQs";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import { Host_Grotesk } from 'next/font/google';
+
 // Add this import for the mobile navigation
 import MobileNavPopup from "@/components/MobilePopup";
 
+const hostGrotesk = Host_Grotesk({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-host-grotesk',
+});
 export default function About(){
     return(
         <>
             {/* Add Mobile Navigation at the top level */}
            
-            <div className="AboutContainer">
+            <div className={`AboutContainer ${hostGrotesk.variable}`}>
 
             <div className="about-container">
              

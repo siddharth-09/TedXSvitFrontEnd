@@ -5,13 +5,11 @@ width: 100vw;
  
      background-color: #000000; /* a deep gray */
   color: #e5e5e5; /* off-white */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
+  font-family: "Host Grotesk", sans-serif;
 }
 
 .about-container {
@@ -21,7 +19,7 @@ width: 100vw;
     position: relative;
     display: flex;
     flex-direction: column;
-
+    font-family: "Host Grotesk", sans-serif;
     /* Prevent horizontal scroll */
 }
 

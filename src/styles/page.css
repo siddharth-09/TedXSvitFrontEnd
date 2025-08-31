@@ -6,6 +6,7 @@ body {
 .mainpage {
   width: 100%;
   overflow: hidden;
+   font-family: "Host Grotesk", sans-serif;
 }
 
 .NavBar {
