@@ -76,7 +76,9 @@ export default function Navbar() {
         >
            <div className="navbar-content">
             <div className="logo">
-              <img src="/logoNav.png" alt="NavLogo" />
+              <img src="/logoNav.png" alt="NavLogo" onClick={()=>{
+              handleNavClick("/")
+              }} style={{cursor:"pointer"}}/>
             </div>
 
             {/* Desktop Navigation */}
