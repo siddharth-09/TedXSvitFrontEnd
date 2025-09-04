@@ -25,6 +25,7 @@ export interface TicketData {
 
 export async function sendTicketEmail(ticketData: TicketData) {
   // Generate ticket image with name + QR on the template
+  console.log(ticketData.userName)
   const ticketBuffer = await renderTicketWithQR({
     userName: ticketData.userName,
     qrCodeBase64: ticketData.qrCode,

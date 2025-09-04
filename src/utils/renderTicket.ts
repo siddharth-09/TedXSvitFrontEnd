@@ -22,7 +22,7 @@ export async function renderTicketWithQR({
 
   // Draw Name
   ctx.fillStyle = '#FFFFFF'
-  ctx.font = 'bold 173px Arial' // Updated font size
+  ctx.font = 'bold 1000px Arial' // Updated font size
   ctx.fillText(userName, 85, 2456) // Updated coordinates
 
   // Draw QR Code
