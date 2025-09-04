@@ -2,7 +2,6 @@
 
 'use client'
 
-
 import { supabase } from "../../../lib/supabase" 
 import { useEffect, useState } from 'react'
 import Script from "next/script"
@@ -38,6 +37,8 @@ export function TicketForm() {
   })
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
+  const [ticketId, setTicketId] = useState<string | null>(null)
+  const [downloadLoading, setDownloadLoading] = useState(false)
   const key_id = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!
 
   // Fetch the only event
@@ -67,6 +68,39 @@ export function TicketForm() {
     }))
   }
 
+  const downloadTicket = async () => {
+    if (!ticketId) return
+
+    setDownloadLoading(true)
+    try {
+      const response = await fetch('/download-ticket', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ticketId })
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to download ticket')
+      }
+
+      const blob = await response.blob()
+      const url = window.URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.style.display = 'none'
+      a.href = url
+      a.download = `TEDXSVIT-TICKETS.png`
+      document.body.appendChild(a)
+      a.click()
+      window.URL.revokeObjectURL(url)
+      document.body.removeChild(a)
+    } catch (error) {
+      console.error('Download failed:', error)
+      alert('Failed to download ticket. Please try again.')
+    } finally {
+      setDownloadLoading(false)
+    }
+  }
+
   const handlePayment = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!event) return
@@ -89,6 +123,7 @@ export function TicketForm() {
 
     setLoading(true)
     setMessage('')
+    setTicketId(null) // Reset ticket ID
 
     try {
       const orderResponse = await fetch('/order', {
@@ -129,6 +164,7 @@ export function TicketForm() {
           const verifyData = await verifyResponse.json()
           if (verifyData.success) {
             setMessage('Payment successful! Your ticket has been sent to your email.')
+            setTicketId(verifyData.ticketId) // Store ticket ID for download
           } else {
             setMessage('Payment verification failed. Please contact support.')
           }
@@ -151,9 +187,8 @@ export function TicketForm() {
   }
 
   return (
-      
-      <div className="MainTicketContainer">
-        <Script src="https://checkout.razorpay.com/v1/checkout.js" />
+    <div className="MainTicketContainer">
+      <Script src="https://checkout.razorpay.com/v1/checkout.js" />
       <div className="ticketContainer">
         <h1 className="TicketNowTitle">Get Your Tickets Now!</h1>
         <div className="MainForm">
@@ -193,9 +228,34 @@ export function TicketForm() {
               {loading
                 ? 'Processing...'
                 : event
-                  ? `Pay ₹${event.price} to generate ticket >`
+                  ? `Pay Now`
                   : 'Loading event...'}
             </button>
+            
+            {/* Download button - only show after successful payment */}
+            {ticketId && (
+              <button
+                type="button"
+                onClick={downloadTicket}
+                className="downloadButton"
+                disabled={downloadLoading}
+                style={{
+                  marginTop: '10px',
+                  backgroundColor: '#28a745',
+                  color: 'white',
+                  border: 'none',
+                  padding: '12px 24px',
+                  borderRadius: '5px',
+                  cursor: downloadLoading ? 'not-allowed' : 'pointer',
+                  fontSize: '16px',
+                  fontWeight: 'bold',
+                  opacity: downloadLoading ? 0.6 : 1
+                }}
+              >
+                {downloadLoading ? 'Downloading...' : '📥 Download Ticket'}
+              </button>
+            )}
+
             {message && (
               <div
                 style={{

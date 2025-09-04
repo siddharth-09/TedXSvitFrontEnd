@@ -6,7 +6,7 @@ export async function renderTicketWithQR({
   userName,
   qrCodeBase64,
 }: {
-  userName: string
+  userName: string,
   qrCodeBase64: string
 }): Promise<Buffer> {
   
