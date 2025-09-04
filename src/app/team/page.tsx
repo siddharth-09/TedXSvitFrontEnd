@@ -194,7 +194,7 @@ const StaticGrid: React.FC<{ group: MemberGroup }> = ({ group }) => {
           )}
           <div className="image-text">
             <h3>{member.name}</h3>
-            <p>{member.role}</p>
+            
           </div>
         </div>
       ))}

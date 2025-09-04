@@ -43,6 +43,7 @@ body {
 }
 
 .HeroSectionContainer h1 {
+  
   position: relative;
   z-index: 3;
 }
@@ -125,6 +126,7 @@ body {
 }
 
 .card-image {
+  
   width: 100%;
   aspect-ratio: 540/720;
   object-fit: cover;
@@ -166,11 +168,12 @@ body {
 }
 
 .static-card {
+  margin: .5rem;
   position: relative;
   width: 10rem; /* Smaller card size on mobile */
   height: 14rem;
   background-color: #262626;
-  border-radius: 0.75rem;
+  /* border-radius: 0.75rem; */
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
@@ -201,8 +204,8 @@ body {
     font-size: 2rem;
   }
   .carousel-slide, .static-card {
-    width: 16rem;
-    height: 20rem;
+    width: 22.5rem;
+    height: 30rem;
   }
   .carousel-track, .static-grid-container {
     gap: 1rem;
@@ -221,5 +224,27 @@ body {
   .carousel-slide, .static-card {
     width: 33.7rem;
     height: 45rem;
+  }
+}
+@media (max-width:768px) {
+  .HeroSectionContainer h1{
+    font-family: 'Host Grotesk' !important;
+    font-style: normal;
+    font-weight: 400;
+    font-size:4rem ;
+    letter-spacing: -0.12rem;
+  }
+  .image-text h3 {
+    padding: 1rem !important;
+   font-size: 2.25rem;
+  }
+  .carousel-slide, .static-card {
+    width: 22.5rem;
+    height: 30rem;
+  }
+  .group-title{
+    margin: 2.5rem;
+    padding: 0rem;
+    font-size: 4rem !important;
   }
 }
