@@ -44,46 +44,52 @@ interface OtherTeamsProps {
 const WebsiteTeamCarousel: React.FC<WebsiteTeamCarouselProps> = ({ images }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState<boolean>(false);
+  const scrollPositionRef = useRef<number>(0); // Reference to store scroll position persistently
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
     let animationFrameId: number;
-    let scrollPosition = 0;
-    const scrollSpeed = 0.5;
+    const scrollSpeed = 1;
 
     const animateScroll = () => {
       if (!isPaused) {
-        scrollPosition += scrollSpeed;
-        if (scrollPosition >= container.scrollWidth / 2) {
-          scrollPosition = 0;
+        // Update scroll position only when not paused
+        scrollPositionRef.current += scrollSpeed;
+
+        if (scrollPositionRef.current >= container.scrollWidth / 2) {
+          scrollPositionRef.current = 0; // Loop back to the start
         }
-        container.style.transform = `translateX(-${scrollPosition}px)`;
+
+        container.style.transform = `translateX(-${scrollPositionRef.current}px)`;
       }
+
       animationFrameId = requestAnimationFrame(animateScroll);
     };
 
+    // Start animation
     animationFrameId = requestAnimationFrame(animateScroll);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [isPaused]);
 
+    // Cleanup on unmount
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isPaused]); // Re-run if isPaused changes
+
+  // Duplicate the images for infinite scrolling
   const duplicatedImages = [...images, ...images];
 
   return (
-    <>
     <div className="app-container">
-      
-      <div className='WebsiteTeam'>
-        <div className='WebsiteTeamTitle'>
+      <div className="WebsiteTeam">
+        <div className="WebsiteTeamTitle">
           <h1 className="title">Website Team</h1>
         </div>
-        <div className="carousel-wrapper"> {/* New wrapper for padding */}
+        <div className="carousel-wrapper">
           <div
             className="carousel-container"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            >
+            onMouseEnter={() => setIsPaused(true)} // Pause on hover
+            onMouseLeave={() => setIsPaused(false)} // Resume when mouse leaves
+          >
             <div className="carousel-track" ref={containerRef}>
               {duplicatedImages.map((image, index) => (
                 <div key={index} className="carousel-slide">
@@ -99,8 +105,6 @@ const WebsiteTeamCarousel: React.FC<WebsiteTeamCarouselProps> = ({ images }) => 
         </div>
       </div>
     </div>
-       
-    </>
   );
 };
 
@@ -117,34 +121,41 @@ const CarouselOrGrid: React.FC<{ group: MemberGroup }> = ({ group }) => {
 const InfiniteCarousel: React.FC<{ group: MemberGroup }> = ({ group }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState<boolean>(false);
+  const scrollPositionRef = useRef<number>(0); // Reference to store scroll position persistently
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
     let animationFrameId: number;
-    let scrollPosition = 0;
-    const scrollSpeed = 0.5;
+    const scrollSpeed = 1;
 
     const animateScroll = () => {
       if (!isPaused) {
-        scrollPosition += scrollSpeed;
-        if (scrollPosition >= container.scrollWidth / 2) {
-          scrollPosition = 0;
+        // Update scroll position only when not paused
+        scrollPositionRef.current += scrollSpeed;
+
+        if (scrollPositionRef.current >= container.scrollWidth / 2) {
+          scrollPositionRef.current = 0; // Loop back to the start
         }
-        container.style.transform = `translateX(-${scrollPosition}px)`;
+
+        container.style.transform = `translateX(-${scrollPositionRef.current}px)`;
       }
+
       animationFrameId = requestAnimationFrame(animateScroll);
     };
 
+    // Start animation
     animationFrameId = requestAnimationFrame(animateScroll);
+
+    // Cleanup on unmount
     return () => cancelAnimationFrame(animationFrameId);
-  }, [isPaused]);
+  }, [isPaused]); // Re-run if isPaused changes
 
   const duplicatedMembers = [...group.members, ...group.members];
 
   return (
-    <div className="carousel-wrapper"> {/* New wrapper for padding */}
+    <div className="carousel-wrapper"> {/* New wrapper for padding */} 
       <div
         className="carousel-container"
         onMouseEnter={() => setIsPaused(true)}
@@ -204,7 +215,6 @@ const OtherTeams: React.FC<OtherTeamsProps> = ({ groups }) => {
     </div>
   );
 };
-
 // Main HomePage component that combines all sections
 export default function HomePage() {
   // Website Team data
