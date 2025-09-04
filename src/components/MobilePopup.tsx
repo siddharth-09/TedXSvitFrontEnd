@@ -160,7 +160,8 @@ export default function MobileNavPopup() {
       <style jsx>{`
         /* Mobile Hamburger Button */
         .mobile-hamburger {
-          display: none;
+        pointer-events: none;
+          display: none !important;
           position: absolute;
           top: 3.5rem;
           right: 2.5rem;
@@ -183,6 +184,7 @@ export default function MobileNavPopup() {
           transition: all 0.3s ease;
         }
         .lineHum{
+        display:none;
           width:100%;
           height:100%;
           margin:0px;
@@ -215,6 +217,7 @@ export default function MobileNavPopup() {
         .mobile-hamburger-active span:nth-child(3) {
           transform: rotate(-45deg) translate(5px, -5px);
         }
+        
 
         /* Overlay */
         .mobile-nav-overlay {
@@ -369,7 +372,10 @@ export default function MobileNavPopup() {
         @media (max-width: 768px) {
           .mobile-hamburger {
             display: flex;
+            pointer-events: auto;
           }
+            .lineHum{
+        display:flex;
         }
 
         /* Adjust popup width for smaller screens */
@@ -377,6 +383,9 @@ export default function MobileNavPopup() {
           .mobile-nav-popup {
             width: 100vw;
           }
+            
+        }
+        
         }
       `}</style>
     </>
