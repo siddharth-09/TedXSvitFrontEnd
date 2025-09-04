@@ -56,8 +56,10 @@ body {
 }
 
 .nav-links a {
+  cursor: pointer;
   color: white;
   text-decoration: none;
+  background-color: transparent;
   font-size: 1.5rem;
   transition: all 0.3s ease;
 }
@@ -65,6 +67,9 @@ body {
 .nav-links a:hover {
   color: #e50914;
   text-decoration: underline;
+}
+.nav-links button{
+  background-color: transparent;
 }
 
 .get-tickets .tickets-button {

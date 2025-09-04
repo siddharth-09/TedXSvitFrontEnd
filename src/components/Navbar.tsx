@@ -81,10 +81,10 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="nav-links desktop-nav">
-              <button onClick={() => handleNavClick("/")}>Home</button>
-              <button onClick={() => handleNavClick("/team")}>Team</button>
-              <button onClick={() => handleNavClick("/sponsors")}>Sponsors</button>
-              <button onClick={() => handleNavClick("/about")}>About</button>
+              <a onClick={() => handleNavClick("/")}>Home</a>
+              <a onClick={() => handleNavClick("/team")}>Team</a>
+              <a onClick={() => handleNavClick("/sponsors")}>Sponsors</a>
+              <a onClick={() => handleNavClick("/about")}>About</a>
             </div>
 
             {/* Desktop Get Tickets Button */}
