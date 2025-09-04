@@ -76,7 +76,7 @@ export default function Navbar() {
         >
            <div className="navbar-content">
             <div className="logo">
-              <img src="/logoNav.png" alt="" />
+              <img src="/logoNav.png" alt="NavLogo" />
             </div>
 
             {/* Desktop Navigation */}
