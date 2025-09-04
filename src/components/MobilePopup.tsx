@@ -109,9 +109,8 @@ export default function MobileNavPopup() {
         onClick={toggleMenu}
         aria-label="Toggle menu"
       >
-        <span></span>
-        <span></span>
-        <span></span>
+        <div className="lineHum"></div>
+        <div className="lineHum"></div>
       </button>
 
       {/* Overlay */}
@@ -163,23 +162,35 @@ export default function MobileNavPopup() {
         .mobile-hamburger {
           display: none;
           position: absolute;
-          top: 2.5rem;
+          top: 3.5rem;
           right: 2.5rem;
           transform: translateY(-50%);
           z-index: 1000;
           flex-direction: column;
           justify-content: space-between;
-          width: 28px;
-          height: 20px;
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          width: 48px;
+          height: 48px;
+          background: transparent;
+          display:grid !important;
+          grid-template-rows:repeat(3,1fr);
+          border: 1px solid rgba(255, 255, 255, 0);
           border-radius: 8px;
+          
           cursor: pointer;
-          padding: 8px;
+          padding: 5px;
+          padding-top:14px;
+          padding-bottom:8px;
           transition: all 0.3s ease;
         }
-
+        .lineHum{
+          width:100%;
+          height:100%;
+          margin:0px;
+          margin-left:2px;
+          padding-right:12px;
+          padding-left:12px;
+          border-bottom:2px solid white;
+        }
         .mobile-hamburger:hover {
           background: rgba(255, 255, 255, 0.2);
         }
