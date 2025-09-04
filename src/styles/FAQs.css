@@ -56,7 +56,7 @@
   text-align: left;
   width: 100%;
   /* Responsive padding */
-  padding: clamp(1.8rem, 2vw, 1rem) 0;
+  padding: clamp(2rem, 2vw, 1rem) 0;
   color: #ffffff;
   /* Responsive font size */
   font-size: clamp(1rem, 3vw, 1.5rem);
