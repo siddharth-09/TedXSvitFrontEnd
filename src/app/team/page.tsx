@@ -82,7 +82,7 @@ const WebsiteTeamCarousel: React.FC<WebsiteTeamCarouselProps> = ({ images }) => 
     <div className="app-container">
       <div className="WebsiteTeam">
         <div className="WebsiteTeamTitle">
-          <h1 className="title">Website Team</h1>
+          <h1 className="group-title">Website Team</h1>
         </div>
         <div className="carousel-wrapper">
           <div
@@ -96,7 +96,7 @@ const WebsiteTeamCarousel: React.FC<WebsiteTeamCarouselProps> = ({ images }) => 
                   <img src={image.src} alt={image.alt} />
                   <div className="image-text">
                     <h3>{image.alt.split('\n')[0]}</h3>
-                    <p>{image.alt.split('\n')[1]}</p>
+                    
                   </div>
                 </div>
               ))}
@@ -171,7 +171,7 @@ const InfiniteCarousel: React.FC<{ group: MemberGroup }> = ({ group }) => {
               )}
               <div className="image-text">
                 <h3>{member.name}</h3>
-                <p>{member.role}</p>
+               
               </div>
             </div>
           ))}
@@ -236,7 +236,7 @@ export default function HomePage() {
         { name: 'Jal Panchal', role: 'TY', department: 'Civil', imageUrl: 'AdminAndLogistics/' },
         { name: 'Miraj Mistry', role: 'SY', department: 'Mechanical', imageUrl: 'AdminAndLogistics/' },
         { name: 'Mishit Shah', role: 'SY', department: 'Mechanical', imageUrl: 'AdminAndLogistics/' },
-        { name: 'Netra Rakeshkumar Patel', role: 'TY', department: 'CE', imageUrl: 'AdminAndLogistics/Netra Patel.jpg' },
+        { name: 'Netra Patel', role: 'TY', department: 'CE', imageUrl: 'AdminAndLogistics/Netra Patel.jpg' },
       ],
     },
     {
