@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
       .toBuffer()
 
     // Return the image as a downloadable file
-    return new NextResponse(compressedBuffer, {
+    return new NextResponse(compressedBuffer.toString(), {
       status: 200,
       headers: {
         'Content-Type': 'image/png',
