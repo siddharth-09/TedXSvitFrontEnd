@@ -251,7 +251,8 @@
     }
     
     .formMandala {
-        transform: translateY(20%) translateX(0%) scale(1);
+        
+        transform: translateY(-20%) translateX(0%) scale(1);
         opacity: 0.6;
     }
     
@@ -281,4 +282,25 @@
     .TicketNowTitle {
         font-size: 1.5rem;
     }
+}
+@media screen and (max-width: 1024px) {
+  .formMandala {
+    transform: translateY(0%) translateX(20%) scale(1.5);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .formMandala {
+    animation: mandalaForm 200s linear infinite forwards;
+    opacity: 0.8;
+    transform: translateY(-2%) scale(1.2) ;
+  }
+  @keyframes mandalaForm {
+    0% {
+        transform: translateY(-2%) scale(1.2) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-2%) scale(1.2) rotate(360deg);
+    }
+}
 }
