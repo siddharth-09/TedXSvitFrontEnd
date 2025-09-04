@@ -32,7 +32,7 @@ export default function Home() {
         <div className="logoTextButtonContainer">
           <div className="logoText">
             <Image
-              src="/samatvamLogoText.svg"
+              src="/samatvamTextLogo.svg"
               width={500}
               height={300}
               alt="Picture of the author"
