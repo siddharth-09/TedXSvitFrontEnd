@@ -106,7 +106,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  animation: mandalaHero 100s linear infinite forwards;
+  animation: mandalaHero 200s linear infinite forwards;
 }
 .heroInnerMandala{
   width: 50vw;
@@ -115,7 +115,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-    animation: mandalaInnerHero 100s linear infinite forwards;
+    animation: mandalaInnerHero 200s linear infinite forwards;
 }
 @keyframes mandalaInnerHero {
   0% {
@@ -229,7 +229,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-    animation: mandalaInnerHero 100s linear infinite forwards;
+    animation: mandalaInnerHero 200s linear infinite forwards;
 }
 @keyframes mandalaInnerHero {
   0% {

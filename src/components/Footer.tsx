@@ -20,20 +20,25 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="footer-bottom">
-        <p className="license">
-          *This independent TEDx event is operated under license from TED.
-        </p>
-        <div className="social-icons">
-          <a href="#">FaYoutube </a>
-          <a href="#">FaLinkedin </a>
-          <a href="#">FaXTwitter </a>
-          <a href="#">FaInstagram </a>
-        </div>
-        <div className="footerImage">
-            <Image src="/TedXFooter.png" alt="TEDx Footer" width={600} height={100} style={{ height: 'auto', width: '100%' }} />
-        </div>
-      </div>
+      
+          <div className="footer-bottom">
+           <div className="footer-row">
+            <p className="license">
+             *This independent TEDx event is operated under license from TED.
+            </p>
+            <div className="social-icons">
+             <a href="#">FaYoutube </a>
+             <a href="#">FaLinkedin </a>
+             <a href="#">FaXTwitter </a>
+             <a href="#">FaInstagram </a>
+            </div>
+           </div>
+           <div className="footerImage">
+            <Image src="/TedXFooter.png" alt="TEDx Footer" width={0} height={0} sizes="100vw" style={{width:'100%',height:'auto'}} />
+           </div>
+          </div>
+
+
     </footer>
   );
 };
