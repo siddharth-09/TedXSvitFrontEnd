@@ -21,12 +21,19 @@ export default function Home() {
         <div className="heroMandalaImgContainer"> 
           {/* <img src="mainMandala.svg" alt="#" className="heroMandala" /> */}
           <Image
-          src="/heroMandala.svg"
-          width={500}
-          height={500}
+          src="/MainHeroInnerMandala.svg"
+          width={1000}
+          height={1000}
+          alt="Picture of the author"
+          className="heroInnerMandala"
+          />
+          <Image
+          src="/MainHeroOuterMandala.svg"
+          width={1000}
+          height={1000}
           alt="Picture of the author"
           className="heroMandala"
-        />
+          />
         </div>
         
         <div className="logoTextButtonContainer">
