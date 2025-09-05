@@ -289,7 +289,7 @@ export default function MobileNavPopup() {
           padding: 2rem;
           display: flex;
           flex-direction: column;
-          height: calc(100vh - 120px);
+          height: calc(100vh - 200px);
         }
 
         .mobile-nav-links {
@@ -341,8 +341,9 @@ export default function MobileNavPopup() {
 
         /* Mobile Tickets Section */
         .mobile-tickets-section {
-          margin-top: 2rem;
-          padding-top: 2rem;
+
+          // margin-top: 2rem;
+          // padding-top: 2rem;
           border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
