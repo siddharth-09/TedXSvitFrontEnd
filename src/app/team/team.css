@@ -1,34 +1,27 @@
-/* We're using a single class-based approach for styling */
-*{
-  color:white;
+/* Base styles */
+* {
+  color: white;
   font-family: 'Host Grotesk';
-  font-style:normal;
+  font-style: normal;
   line-height: 100%;
 }
+
 body {
-  background-color: #000000; /* a deep gray */
-  color: #e5e5e5; /* off-white */
+  background-color: #000000;
+  color: #e5e5e5;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-  padding: 0;
-}
-.teamContainer{
-  overflow: hidden;
-}
-.app-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  z-index: 3;
-  padding: 1rem; /* Reduced padding for mobile */
+
 }
 
+.teamContainer {
+  overflow: hidden;
+}
+
+/* Hero Section */
 .HeroSectionContainer {
   position: relative;
   width: 100%;
@@ -37,15 +30,18 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 0 1rem;
   text-align: center;
+  overflow: hidden; /* Added to prevent any overflow */
 }
 
 .HeroSectionContainer h1 {
-  
   position: relative;
   z-index: 3;
+  font-size: 4rem;
+  font-weight: 400;
+  letter-spacing: -0.12rem;
+  margin: 0; /* Added to remove default margin */
 }
 
 .TeamMandala {
@@ -56,6 +52,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   animation: mandalaTeam 140s linear infinite forwards;
+  z-index: 1; /* Added to ensure it stays behind the text */
 }
 
 @keyframes mandalaTeam {
@@ -67,26 +64,18 @@ body {
   }
 }
 
-.title {
-  font-size: 2rem; /* Smaller font size on mobile */
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  text-align: center;
+/* Photos Section */
+.photesSection {
+  padding: 2rem 1rem 0;
+  width: 100%;
 }
 
-.subtitle {
-  font-size: 0.875rem; /* Smaller font size */
-  margin-bottom: 1.5rem;
-  text-align: center;
-  max-width: 32rem;
-}
-
+/* Team Gallery */
 .group-title {
-  padding: 5rem;
-  font-size: 6rem !important; /* Smaller font size */
+  padding: 2.5rem 0;
+  font-size: 4rem;
   font-weight: 400;
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
+  margin: 0;
   text-align: left;
   letter-spacing: -0.18rem;
   width: 100%;
@@ -94,28 +83,35 @@ body {
 
 .carousel-container {
   width: 100%;
-  overflow-x: hidden;
-  white-space: nowrap;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin-bottom: 2rem;
+  cursor: grab;
+  user-select: none;
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
 }
 
 .carousel-track {
-  display: inline-flex;
-  gap: 0.75rem; /* Smaller gap for mobile */
-  padding-bottom: 0.75rem;
-  transition: transform linear;
-  box-sizing: border-box;
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  padding-bottom: 1rem;
 }
 
 .carousel-slide {
-  position: relative;
-  display: inline-block;
-  width: 9rem; /* Smaller card size on mobile */
-  height: 14rem;
   flex-shrink: 0;
-  background-color: #262626; /* darker gray */
-  border-radius: 0.75rem;
+  position: relative; /* Added to ensure proper positioning of child elements */
+  width: 540px;
+  height: 720px;
+  background-color: #262626;
+  border-radius:0;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
@@ -126,125 +122,59 @@ body {
 }
 
 .card-image {
-  
   width: 100%;
-  aspect-ratio: 540/720;
+  height: 100%;
   object-fit: cover;
 }
 
-.image-text {
+/* Fixed: Made image-text specific to carousel slides only */
+.carousel-slide .image-text {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 0.75rem; /* Smaller padding */
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 70%, transparent 100%);
+  padding: 0.75rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 70%, transparent 100%);
   color: #fff;
+  opacity: 1;
+  visibility: visible;
+  z-index: 2; /* Added to ensure it appears above the image */
 }
 
-.image-text h3 {
+.carousel-slide .image-text h3 {
   font-weight: 600;
-  padding: 2rem;
-  font-size: 3rem; /* Smaller font size */
+  padding: 1rem;
+  font-size: 2.25rem;
   margin: 0;
 }
 
-.image-text p {
-  font-size: 0.625rem; /* Smaller font size */
+.carousel-slide .image-text p {
+  font-size: 0.625rem;
   color: #a3a3a3;
-  margin-top: 0.25rem;
+  margin: 0; /* Changed from margin-top to margin: 0 */
+  padding: 0 1rem 1rem 1rem; /* Added padding instead */
   text-align: left;
 }
 
-/* New styles for the static grid */
-.static-grid-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem; /* Smaller gap for mobile */
-  width: 100%;
-  max-width: 72rem;
-  padding-bottom: 0.75rem;
-}
-
-.static-card {
-  margin: .5rem;
-  position: relative;
-  width: 10rem; /* Smaller card size on mobile */
-  height: 14rem;
-  background-color: #262626;
-  /* border-radius: 0.75rem; */
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-}
-
-.static-card:hover {
-  transform: scale(1.05);
-}
-
-.static-card .image-placeholder {
-  width: 100%;
-  height: 100%;
-  background-color: #444;
-}
-
-/* Responsive design for tablets */
+/* Responsive Design */
 @media (min-width: 640px) {
-  .app-container {
-    padding: 2rem;
-  }
-  .title {
-    font-size: 2.5rem;
-  }
-  .subtitle {
-    font-size: 1rem;
-  }
-  .group-title {
-    font-size: 2rem;
-  }
-  .carousel-slide, .static-card {
+  .carousel-slide {
     width: 22.5rem;
     height: 30rem;
   }
-  .carousel-track, .static-grid-container {
-    gap: 1rem;
-    padding-bottom: 1rem;
-  }
 }
 
-/* Responsive design for desktops */
 @media (min-width: 1024px) {
-  .app-container {
-    padding: 1rem;
-  }
-  .carousel-container {
-    padding: 1rem;
-  }
-  .carousel-slide, .static-card {
+  .carousel-slide {
     width: 33.7rem;
     height: 45rem;
   }
-}
-@media (max-width:768px) {
-  .HeroSectionContainer h1{
-    font-family: 'Host Grotesk' !important;
-    font-style: normal;
-    font-weight: 400;
-    font-size:4rem ;
-    letter-spacing: -0.12rem;
+  .group-title {
+    font-size: 6rem;
+    padding: 5rem 0;
   }
-  .image-text h3 {
-    padding: 1rem !important;
-   font-size: 2.25rem;
-  }
-  .carousel-slide, .static-card {
-    width: 22.5rem;
-    height: 30rem;
-  }
-  .group-title{
-    margin: 2.5rem;
-    padding: 0rem;
-    font-size: 4rem !important;
+  
+  .HeroSectionContainer h1 {
+    font-size: 6rem; /* Larger text for desktop */
   }
 }
